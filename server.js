@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const port = 3000
 
@@ -10,6 +11,8 @@ const fotos = [{
   url: 'https://abrilveja.files.wordpress.com/2016/06/leao-7896-c-original.jpeg?quality=70&strip=info&w=620',
   titulo: 'Leao 2'
 }]
+
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.send('HOME')
