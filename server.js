@@ -5,11 +5,13 @@ const port = 3000
 
 const fotos = [{
   url: 'https://www.greenme.com.br/images/informar-se/animais/leao.jpg',
-  titulo: 'Leao 1'
+  titulo: 'Leao 1',
+  descricao: 'Foto de leão com fundo preto'
 },
 {
   url: 'https://abrilveja.files.wordpress.com/2016/06/leao-7896-c-original.jpeg?quality=70&strip=info&w=620',
-  titulo: 'Leao 2'
+  titulo: 'Leao 2',
+  descricao: 'Foto do leão de frente'
 }]
 
 app.use(cors())
