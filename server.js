@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
 const port = 3000
@@ -15,6 +16,8 @@ const fotos = [{
 }]
 
 app.use(cors())
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
   res.send('HOME')
@@ -27,6 +30,15 @@ app.get('/v1/fotos', (req, res) => {
 app.get('/v1/fotos/:id', (req, res) => {
   const id = req.params.id
   res.json(fotos[id])
+})
+
+app.post('/v1/fotos', (req, res) => {
+  const foto = req.body
+
+  console.log(foto)
+  fotos.push(foto)
+
+  res.status(200).json({msg: 'Mensagem salva com sucesso!'})
 })
 
 app.listen(port, () => {
